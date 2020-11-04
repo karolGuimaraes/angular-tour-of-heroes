@@ -1,0 +1,20 @@
+<h2>{{hero.name | uppercase}} Details</h2>
+<br>
+<div><span>id: </span>{{hero.id}}</div>
+<br>
+<div>
+  <span>name: </span>
+  {{hero.name}}
+</div>
+<br>
+<div>
+  <label>name:
+    <!-- Two-way binding -->
+    <input [(ngModel)]="hero.name" placeholder="name"/>
+  </label>
+</div>
+<br>
+<div><span>birthday: </span>{{hero.birthday}}</div>
+<div><span>birthday date: </span>{{hero.birthday | date}}</div>
+<div><span>birthday format: </span>{{hero.birthday | date:'dd/MM/yyyy'}}</div>
+<div><span>full birthday: </span>{{hero.birthday | date:'fullDate'}}</div>
