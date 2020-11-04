@@ -18,3 +18,37 @@
 <div><span>birthday date: </span>{{hero.birthday | date}}</div>
 <div><span>birthday format: </span>{{hero.birthday | date:'dd/MM/yyyy'}}</div>
 <div><span>full birthday: </span>{{hero.birthday | date:'fullDate'}}</div>
+
+<hr>
+
+<!-- Quando o app é inciado, o selectedHero é indefinido -->
+<div *ngIf="selectedHero">
+  <h2>{{selectedHero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedHero.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedHero.name" placeholder="name"/>
+    </label>
+  </div>
+  <div>
+    <label>birthday:
+      <input [(ngModel)]="selectedHero.birthday" type="date" />
+    </label>
+  </div>
+</div>
+
+<hr>
+
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes; index as i; first as isFirst; last as isLast"
+      (click)="onSelect(hero)"
+      [class.selected]="hero === selectedHero"
+  >
+    <span class="badge">{{i}} - ID {{hero.id}}</span>
+    <!-- <span *ngIf="isFirst">É o primeiro </span> -->
+    {{hero.name}} {{hero.birthday | date:'dd/MM/yyyy'}}
+
+    <!-- <span *ngIf="isLast">É o último </span> -->
+  </li>
+</ul>
