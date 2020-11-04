@@ -40,13 +40,25 @@
 
 
 <h2>My Heroes</h2>
+<div>
+  <label>Hero name:
+    <input #heroName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(heroName.value); heroName.value=''">
+    add
+  </button>
+</div>
+
 <ul class="heroes">
   <li *ngFor="let hero of heroes; index as i; first as isFirst; last as isLast"
       routerLink="/detail/{{hero.id}}">
     <span class="badge">{{i}} - ID {{hero.id}}</span>
     <!-- <span *ngIf="isFirst">É o primeiro </span> -->
-    {{hero.name}} {{hero.birthday | date:'dd/MM/yyyy'}}
+    {{hero.name}}
 
     <!-- <span *ngIf="isLast">É o último </span> -->
+    <button class="delete" title="delete hero"
+      (click)="delete(hero)">x</button>
   </li>
 </ul>
