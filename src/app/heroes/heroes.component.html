@@ -1,4 +1,4 @@
-<h2>{{hero.name | uppercase}} Details</h2>
+<!-- <h2>{{hero.name | uppercase}} Details</h2>
 <br>
 <div><span>id: </span>{{hero.id}}</div>
 <br>
@@ -8,9 +8,9 @@
 </div>
 <br>
 <div>
-  <label>name:
+  <label>name: -->
     <!-- Two-way binding -->
-    <input [(ngModel)]="hero.name" placeholder="name"/>
+    <!-- <input [(ngModel)]="hero.name" placeholder="name"/>
   </label>
 </div>
 <br>
@@ -19,7 +19,7 @@
 <div><span>birthday format: </span>{{hero.birthday | date:'dd/MM/yyyy'}}</div>
 <div><span>full birthday: </span>{{hero.birthday | date:'fullDate'}}</div>
 
-<hr>
+<hr> -->
 
 <!-- Quando o app é inciado, o selectedHero é indefinido -->
 <!-- <div *ngIf="selectedHero">
@@ -36,17 +36,13 @@
     </label>
   </div>
 </div> -->
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
 
-
-<hr>
 
 <h2>My Heroes</h2>
 <ul class="heroes">
   <li *ngFor="let hero of heroes; index as i; first as isFirst; last as isLast"
-      (click)="onSelect(hero)"
-      [class.selected]="hero === selectedHero"
-  >
+      routerLink="/detail/{{hero.id}}">
     <span class="badge">{{i}} - ID {{hero.id}}</span>
     <!-- <span *ngIf="isFirst">É o primeiro </span> -->
     {{hero.name}} {{hero.birthday | date:'dd/MM/yyyy'}}
